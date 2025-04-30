@@ -1,9 +1,11 @@
 class ApiUrl {
   ApiUrl._();
 
-  static const String baseUrl = 'https://..../api/v1/';
+  static const String baseUrl = 'https://dummyjson.com';
 
   // static const products = "/products";
   // Url By  Account
-  static const account = "$baseUrl/accounts"; //  Base Url for account
+  static const authBase = "$baseUrl/auth";
+  static const login = "$authBase/login"; //  Base Url for account
+
 }

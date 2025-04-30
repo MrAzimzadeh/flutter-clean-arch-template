@@ -1,4 +1,4 @@
-
+import 'package:cleanarcjh/src/features/auth/di/AuthDependecy.dart';
 
 import 'injector.dart';
 
@@ -8,4 +8,6 @@ final getIt = GetIt.I;
 void configurationDI() {
   getIt.registerLazySingleton(() => ApiHelper(getIt<Dio>()));
   getIt.registerLazySingleton(() => Dio());
+
+  Authdependecy.init();
 }
