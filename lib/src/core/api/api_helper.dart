@@ -4,7 +4,6 @@ import 'package:cleanarcjh/src/core/api/api_exception.dart';
 import 'package:cleanarcjh/src/core/api/api_exception_convert_message.dart';
 import 'package:cleanarcjh/src/core/util/logger.dart';
 import 'package:dio/dio.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class ApiHelper {
   final Dio _dio;

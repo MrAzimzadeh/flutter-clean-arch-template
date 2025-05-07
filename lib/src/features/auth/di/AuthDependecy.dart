@@ -6,16 +6,21 @@ import 'package:cleanarcjh/src/features/auth/data/datasources/auth_remote_dataso
 import 'package:cleanarcjh/src/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:cleanarcjh/src/features/auth/domain/usecases/login_usecase.dart';
 import 'package:cleanarcjh/src/features/auth/presentation/blocs/Auth/auth_bloc.dart';
+import 'package:cleanarcjh/src/features/auth/presentation/blocs/auth_login_form/auth_login_form_bloc.dart';
 
 class Authdependecy {
   Authdependecy._();
 
   static void init() {
-    getIt.registerLazySingleton(() => AuthBloc(getIt<LoginUsecase>()));
+    getIt.registerFactory(() => AuthBloc(getIt<LoginUsecase>()));
 
-    getIt.registerSingleton(() => LoginUsecase(getIt<AuthRepositoryImpl>()));
+    getIt.registerLazySingleton(
+      () => LoginUsecase(getIt<AuthRepositoryImpl>()),
+    );
 
-    getIt.registerSingleton(
+    getIt.registerLazySingleton(() => AuthLoginFormBloc());
+
+    getIt.registerLazySingleton(
       () => AuthRepositoryImpl(
         getIt<AuthRemoteDatasourceImpl>(),
         getIt<AuthLocaldatasourceImpl>(),
@@ -24,5 +29,10 @@ class Authdependecy {
     );
 
     getIt.registerSingleton(() => ApiHelper(getIt<Dio>()));
+
+    getIt.registerLazySingleton(
+      () => AuthRemoteDatasourceImpl(getIt<ApiHelper>()),
+    );
+    getIt.registerLazySingleton(() => AuthLocaldatasourceImpl());
   }
 }

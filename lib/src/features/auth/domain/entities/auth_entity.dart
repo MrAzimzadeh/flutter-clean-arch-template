@@ -1,5 +1,4 @@
 import 'package:cleanarcjh/src/features/user/domein/entity/user_entity.dart';
-import 'package:equatable/equatable.dart';
 
 class AuthEntity extends UserEntity {
   final String? accessToken;

@@ -15,3 +15,11 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # flutter-clean-arch-template
+
+```bash
+dart run build_runner build
+```
+
+```bash 
+ dart run easy_localization:generate -S "assets/translations" -O "lib/gen" -o "locale_keys.g.dart" -f keys
+```

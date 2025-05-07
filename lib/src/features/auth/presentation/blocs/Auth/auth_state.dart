@@ -13,10 +13,20 @@ final class AuthLoginInitialState extends AuthState {}
 
 final class AuthLoginLoadingState extends AuthState {}
 
-final class AuthLoginSuccesstate extends AuthState {}
+final class AuthLoginSuccesstate extends AuthState {
+
+  const AuthLoginSuccesstate();
+}
 
 final class AuthLoginFailurstate extends AuthState {
   final String? message;
 
   const AuthLoginFailurstate(this.message);
 }
+
+/// Auth Check
+class AuthCheckSignInStatusSuccessState extends AuthState {}
+
+class AuthCheckSignInStatusFailureState extends AuthState {}
+
+/// Login
