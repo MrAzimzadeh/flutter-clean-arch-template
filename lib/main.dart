@@ -17,6 +17,7 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
 
   configurationDI();
+  await getIt.allReady(); // wait for required async initialization
 
   await Hive.initFlutter();
 

@@ -2,6 +2,8 @@
   "SplashTest" : "Hello Qardas",
   "InputUserName" : "User Name ",
   "Input Password" : "Password",
-  "BtnLogin" : "Login!!!"
+  "BtnLogin" : "Login!!!",
+  "NetworkFailerMessage" : "Ged Internet Vur kasib"
+
 
 }

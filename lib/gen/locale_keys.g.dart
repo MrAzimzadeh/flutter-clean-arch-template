@@ -7,5 +7,6 @@ abstract class  LocaleKeys {
   static const InputUserName = 'InputUserName';
   static const InputPassword = 'Input Password';
   static const BtnLogin = 'BtnLogin';
+  static const NetworkFailerMessage = 'NetworkFailerMessage';
 
 }

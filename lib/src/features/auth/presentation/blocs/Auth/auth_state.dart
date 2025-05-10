@@ -14,8 +14,8 @@ final class AuthLoginInitialState extends AuthState {}
 final class AuthLoginLoadingState extends AuthState {}
 
 final class AuthLoginSuccesstate extends AuthState {
-
-  const AuthLoginSuccesstate();
+  final UserEntity userEntity;
+  const AuthLoginSuccesstate(this.userEntity);
 }
 
 final class AuthLoginFailurstate extends AuthState {

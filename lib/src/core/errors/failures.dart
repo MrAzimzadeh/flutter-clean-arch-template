@@ -1,3 +1,5 @@
+import 'package:cleanarcjh/gen/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 
 sealed class Failure extends Equatable {
@@ -56,7 +58,12 @@ class InvalidEmailFailure extends Failure {}
 
 class InvalidPasswordFailure extends Failure {}
 
-class NetworkFailure extends Failure {}
+class NetworkFailure extends Failure {
+  @override
+  String toString() {
+    return LocaleKeys.NetworkFailerMessage.tr();
+  }
+}
 
 class AlreadyExistFailure extends Failure {
   final String? title;

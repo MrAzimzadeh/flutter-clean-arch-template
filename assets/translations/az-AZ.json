@@ -2,5 +2,6 @@
   "SplashTest" : "Salam Qardas ",
   "InputUserName" : "Istifadeci Adi",
   "Input Password" : "Sifre",
-  "BtnLogin" : "Daxil Ol!!1 "
+  "BtnLogin" : "Daxil Ol!!1 ",
+  "NetworkFailerMessage" : "Ged Internet Vur kasib"
 }

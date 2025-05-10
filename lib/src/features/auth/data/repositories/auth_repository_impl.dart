@@ -1,3 +1,5 @@
+import 'package:cleanarcjh/src/core/api/api_exception.dart';
+import 'package:cleanarcjh/src/core/cache/local_storage.dart';
 import 'package:cleanarcjh/src/core/errors/failures.dart';
 import 'package:cleanarcjh/src/core/network/network_checker.dart';
 import 'package:cleanarcjh/src/features/auth/data/datasources/auth_localdatasource.dart';
@@ -27,16 +29,22 @@ class AuthRepositoryImpl implements AuthRepository {
               expiresInMins: 30,
             ),
           );
+          await _local.writeUserAccessToken(response.accessToken);
+          await _local.writeUserRefreshToken(response.refreshToken);
           return right(response);
         },
         notConnected: () async {
-          final respponse = await _local.login(null);
-          return right(respponse);
+          return left(NetworkFailure());
         },
       );
       return result;
-    } catch (_) {
-      rethrow;
+    } on BadRequestException catch (_) {
+      return Left(CredentialFailure());
+    } on ApiException catch (_) {
+      // if (e.runtimeType is FetchDataException) {
+
+      // }
+      return Left(ServerFailure());
     }
   }
 }

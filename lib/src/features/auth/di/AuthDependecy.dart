@@ -1,5 +1,6 @@
 import 'package:cleanarcjh/src/config/injector/injector.dart';
 import 'package:cleanarcjh/src/config/injector/injector_conf.dart';
+import 'package:cleanarcjh/src/core/cache/shared_preference_storage.dart';
 import 'package:cleanarcjh/src/core/network/network_checker.dart';
 import 'package:cleanarcjh/src/features/auth/data/datasources/auth_localdatasource.dart';
 import 'package:cleanarcjh/src/features/auth/data/datasources/auth_remote_datasource.dart';
@@ -7,6 +8,7 @@ import 'package:cleanarcjh/src/features/auth/data/repositories/auth_repository_i
 import 'package:cleanarcjh/src/features/auth/domain/usecases/login_usecase.dart';
 import 'package:cleanarcjh/src/features/auth/presentation/blocs/Auth/auth_bloc.dart';
 import 'package:cleanarcjh/src/features/auth/presentation/blocs/auth_login_form/auth_login_form_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Authdependecy {
   Authdependecy._();
@@ -33,6 +35,9 @@ class Authdependecy {
     getIt.registerLazySingleton(
       () => AuthRemoteDatasourceImpl(getIt<ApiHelper>()),
     );
-    getIt.registerLazySingleton(() => AuthLocaldatasourceImpl());
+
+    getIt.registerLazySingleton(
+      () => AuthLocaldatasourceImpl(getIt<SharedPreferenceStorage>()),
+    );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:cleanarcjh/gen/locale_keys.g.dart';
 import 'package:cleanarcjh/src/config/injector/injector_conf.dart';
 import 'package:cleanarcjh/src/core/extensions/integer_sizedbox_extension.dart';
+import 'package:cleanarcjh/src/core/util/logger.dart';
 import 'package:cleanarcjh/src/features/auth/presentation/blocs/Auth/auth_bloc.dart';
 import 'package:cleanarcjh/src/features/auth/presentation/blocs/auth_login_form/auth_login_form_bloc.dart';
 import 'package:cleanarcjh/src/routes/app_routes.dart';
@@ -42,8 +43,13 @@ class LoginPage extends StatelessWidget {
                   BlocConsumer<AuthBloc, AuthState>(
                     listener: (_, state) {
                       if (state is AuthLoginFailurstate) {
-                        appSnackBar(context, Colors.red, "Error Var qardaas ");
+                        appSnackBar(
+                          context,
+                          Colors.red,
+                          state.message ?? "Gozlenilmez Xeta bas Verdi",
+                        );
                       } else if (state is AuthLoginSuccesstate) {
+                        logger.f(state.userEntity.email);
                         context.goNamed(AppRoutes.home.name);
                       }
                     },
