@@ -41,11 +41,11 @@ void configurationDI() {
     () => SecureLocalStorage(getIt<FlutterSecureStorage>()),
   );
 
-  getIt.registerLazySingletonAsync<SharedPreferences>(() async {
-    final sh = await SharedPreferences.getInstance();
-    return sh;
+  getIt.registerSingletonAsync<SharedPreferences>(() async {
+    return await SharedPreferences.getInstance();
   });
-  getIt.registerLazySingleton(
-    () => SharedPreferenceStorage(getIt<SharedPreferences>()),
-  );
+  getIt.registerSingletonAsync<SharedPreferenceStorage>(() async {
+    final prefs = await getIt.getAsync<SharedPreferences>();
+    return SharedPreferenceStorage(prefs);
+  });
 }

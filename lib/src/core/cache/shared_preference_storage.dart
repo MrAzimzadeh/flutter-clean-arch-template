@@ -5,6 +5,7 @@ class SharedPreferenceStorage implements LocalStorage {
   final SharedPreferences _storage;
 
   const SharedPreferenceStorage(this._storage);
+
   @override
   Future<void> delete({required String key, String? boxName}) async {
     await _storage.remove(key);
@@ -12,7 +13,7 @@ class SharedPreferenceStorage implements LocalStorage {
 
   @override
   Future<dynamic> load({required String key, String? boxName}) async {
-    _storage.get(key);
+    return _storage.get(key);
   }
 
   @override
@@ -22,15 +23,17 @@ class SharedPreferenceStorage implements LocalStorage {
     String? boxName,
   }) async {
     switch (value.runtimeType) {
-      case String _:
-        _storage.setString(key, value);
+      case String:
+        await _storage.setString(key, value);
         break;
-      case int _:
-        _storage.setInt(key, value);
-      case bool _:
-        _storage.setBool(key, value);
+      case int:
+        await _storage.setInt(key, value);
+        break;
+      case bool:
+        await _storage.setBool(key, value);
+        break;
       default:
-        _storage.setString(key, value.toString());
+        await _storage.setString(key, value.toString());
     }
   }
 }

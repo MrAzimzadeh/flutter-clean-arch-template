@@ -36,8 +36,9 @@ class Authdependecy {
       () => AuthRemoteDatasourceImpl(getIt<ApiHelper>()),
     );
 
-    getIt.registerLazySingleton(
-      () => AuthLocaldatasourceImpl(getIt<SharedPreferenceStorage>()),
-    );
+    getIt.registerSingletonAsync<AuthLocaldatasourceImpl>(() async {
+      final storage = await getIt.getAsync<SharedPreferenceStorage>();
+      return AuthLocaldatasourceImpl(storage);
+    });
   }
 }
