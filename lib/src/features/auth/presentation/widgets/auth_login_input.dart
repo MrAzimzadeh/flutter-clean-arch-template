@@ -16,12 +16,14 @@ class AuthLoginInput extends StatelessWidget {
       children: [
         AuthTextField<AuthLoginFormBloc>(
           label: LocaleKeys.InputUserName.tr(),
+          initialValue: 'emilys',
           onChanged: (val) {
             formBloc.add(LoginFormUsernameChangedEvent(val));
           },
         ),
         AuthTextField<AuthLoginFormBloc>(
           label: LocaleKeys.InputPassword.tr(),
+          initialValue: "emilyspass",
           onChanged: (val) {
             formBloc.add(LoginFormPasswordChangedEvent(val));
           },

@@ -38,6 +38,7 @@ class _AuthTextFieldState<T> extends State<AuthTextField<T>> {
 
   @override
   Widget build(BuildContext context) {
+   
     final formBloc = context.read<T>();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
@@ -91,4 +92,5 @@ class _AuthTextFieldState<T> extends State<AuthTextField<T>> {
       ),
     );
   }
+
 }

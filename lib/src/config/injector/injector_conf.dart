@@ -44,8 +44,10 @@ void configurationDI() {
   getIt.registerSingletonAsync<SharedPreferences>(() async {
     return await SharedPreferences.getInstance();
   });
+
   getIt.registerSingletonAsync<SharedPreferenceStorage>(() async {
     final prefs = await getIt.getAsync<SharedPreferences>();
     return SharedPreferenceStorage(prefs);
   });
+
 }

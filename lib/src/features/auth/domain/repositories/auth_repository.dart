@@ -5,5 +5,6 @@ import 'package:fpdart/fpdart.dart';
 
 abstract class AuthRepository {
   Future<Either<Failure, AuthEntity>> login(LoginParams params);
+  Future<Either<Failure, AuthEntity>> refreshAccessToken();
 
 }

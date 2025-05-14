@@ -6,6 +6,7 @@ import 'package:cleanarcjh/src/features/auth/data/datasources/auth_localdatasour
 import 'package:cleanarcjh/src/features/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:cleanarcjh/src/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:cleanarcjh/src/features/auth/domain/usecases/login_usecase.dart';
+import 'package:cleanarcjh/src/features/auth/domain/usecases/refresh_usecase.dart';
 import 'package:cleanarcjh/src/features/auth/presentation/blocs/Auth/auth_bloc.dart';
 import 'package:cleanarcjh/src/features/auth/presentation/blocs/auth_login_form/auth_login_form_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -14,10 +15,16 @@ class Authdependecy {
   Authdependecy._();
 
   static void init() {
-    getIt.registerFactory(() => AuthBloc(getIt<LoginUsecase>()));
+    getIt.registerFactory(
+      () => AuthBloc(getIt<LoginUsecase>(), getIt<RefreshUsecase>()),
+    );
 
     getIt.registerLazySingleton(
       () => LoginUsecase(getIt<AuthRepositoryImpl>()),
+    );
+
+    getIt.registerLazySingleton(
+      () => RefreshUsecase(getIt<AuthRepositoryImpl>()),
     );
 
     getIt.registerLazySingleton(() => AuthLoginFormBloc());

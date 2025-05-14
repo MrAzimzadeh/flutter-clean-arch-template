@@ -1,6 +1,7 @@
 import 'package:cleanarcjh/src/core/cache/local_storage.dart';
 import 'package:cleanarcjh/src/core/constants/auth_constants.dart';
 import 'package:cleanarcjh/src/core/errors/exceptions.dart';
+import 'package:cleanarcjh/src/core/util/logger.dart';
 
 sealed class AuthLocaldatasource {
   Future<bool> writeUserAccessToken(String? token);

@@ -11,6 +11,7 @@ class AuthEntity extends UserEntity {
     this.refreshToken,
     this.password,
     this.expiresInMins,
+    
     super.username,
     super.email,
     super.firstName,
