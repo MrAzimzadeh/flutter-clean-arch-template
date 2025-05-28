@@ -1,6 +1,7 @@
 import 'package:cleanarcjh/src/features/auth/presentation/pages/login_page.dart';
 import 'package:cleanarcjh/src/features/home/presentation/page/home_page.dart';
 import 'package:cleanarcjh/src/features/splash/presentation/page/splash_page.dart';
+import 'package:cleanarcjh/src/features/user/presentation/pages/profile_page.dart';
 import 'package:cleanarcjh/src/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -31,6 +32,11 @@ class AppRouteConf {
         path: AppRoutes.login.path,
         name: AppRoutes.login.name,
         builder: (context, state) => LoginPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.profile.path,
+        name: AppRoutes.profile.name,
+        builder: (context, state) => ProfilePage(),
       ),
     ],
   );

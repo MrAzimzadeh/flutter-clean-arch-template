@@ -37,7 +37,6 @@ class Authdependecy {
       ),
     );
 
-    getIt.registerSingleton(() => ApiHelper(getIt<Dio>()));
 
     getIt.registerLazySingleton(
       () => AuthRemoteDatasourceImpl(getIt<ApiHelper>()),
@@ -48,4 +47,4 @@ class Authdependecy {
       return AuthLocaldatasourceImpl(storage);
     });
   }
-}
+}         

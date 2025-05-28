@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1058733748641",
+    "project_id": "salamasd",
+    "storage_bucket": "salamasd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058733748641:android:0cec1a43d7b058663edbe0",
+        "android_client_info": {
+          "package_name": "com.example.cleanarcjh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgbrEggWaL-cuuBPyqabqKkOUO0sjdML4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

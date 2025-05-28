@@ -9,4 +9,8 @@ class ApiUrl {
   static const login = "$authBase/login"; //  Base Url for account
   static const refreshToken = "$authBase/refresh"; //  Base Url for account
 
+  // * User 
+  static const myaccount = "$baseUrl/user"; //  Base Url for user
+  static const userProfile = "$myaccount/me"; //  Base Url for user profile
+  
 }

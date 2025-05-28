@@ -56,7 +56,7 @@ class AuthRepositoryImpl implements AuthRepository {
         connected: () async {
           final refreshToken = await _local.readRefreshToken();
           final response = await _remote.refreshTokenLogin(
-            RefreshRequestModel(refreshToken: "sad"),
+            RefreshRequestModel(refreshToken: refreshToken),
           );
 
           await _local.writeUserAccessToken(response.accessToken);

@@ -8,6 +8,8 @@ class UserEntity extends Equatable {
   final String? lastName;
   final String? gender;
   final String? image;
+  final String? maidenName;
+  final int? age;
 
   const UserEntity({
     this.id,
@@ -17,6 +19,8 @@ class UserEntity extends Equatable {
     this.lastName,
     this.gender,
     this.image,
+    this.maidenName,
+    this.age,
   });
 
   factory UserEntity.fromJson(Map<String, dynamic> json) => UserEntity(
@@ -27,6 +31,8 @@ class UserEntity extends Equatable {
     lastName: json["lastName"],
     gender: json["gender"],
     image: json["image"],
+    maidenName: json["maidenName"],
+    age: json["age"],
   );
 
   Map<String, dynamic> toJson() => {
